@@ -55,15 +55,15 @@ function generateGraphData(func) {
         switch (func) {
             case 'csc':
                 const sinValue = Math.sin(i);
-                yValue = sinValue === 0 ? NaN : 1 / sinValue; // Usar NaN para quebras
+                yValue = Math.abs(sinValue) < 1e-10 ? NaN : 1 / sinValue;
                 break;
             case 'sec':
                 const cosValue = Math.cos(i);
-                yValue = cosValue === 0 ? NaN : 1 / cosValue; // Usar NaN para quebras
+                yValue = Math.abs(cosValue) < 1e-10 ? NaN : 1 / cosValue;
                 break;
             case 'cot':
                 const tanValue = Math.tan(i);
-                yValue = tanValue === 0 ? NaN : 1 / tanValue; // Usar NaN para quebras
+                yValue = Math.abs(tanValue) < 1e-10 ? NaN : 1 / tanValue;
                 break;
             default:
                 yValue = NaN;
