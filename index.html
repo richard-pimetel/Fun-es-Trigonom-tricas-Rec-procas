@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometria Avançada - Cossecante, Secante e Cotangente</title>
+    <link rel="stylesheet" href="styles.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <div class="header-content">
+                <h1>Funções Trigonométricas Recíprocas</h1>
+                <p>Explore as fascinantes cossecante, secante e cotangente!</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#intro">Introdução</a></li>
+                <li><a href="#cossecante">Cossecante</a></li>
+                <li><a href="#secante">Secante</a></li>
+                <li><a href="#cotangente">Cotangente</a></li>
+                <li><a href="#calculadora">Calculadora</a></li>
+                <li><a href="#exercicios">Exercícios</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="intro" class="content-section">
+                <h2>Introdução às Funções Recíprocas</h2>
+                <p class="intro-text">As funções cossecante, secante e cotangente são as recíprocas do seno, cosseno e tangente, respectivamente. Vamos mergulhar em suas definições e propriedades.</p>
+
+                <div class="definitions">
+                    <h3>Definições Básicas:</h3>
+                    <ul>
+                        <li><strong>Cossecante (csc)</strong>: Recíproca do seno → $\csc(\theta) = \frac{1}{\sin(\theta)}$</li>
+                        <li><strong>Secante (sec)</strong>: Recíproca do cosseno → $\sec(\theta) = \frac{1}{\cos(\theta)}$</li>
+                        <li><strong>Cotangente (cot)</strong>: Recíproca da tangente → $\cot(\theta) = \frac{1}{\tan(\theta)} = \frac{\cos(\theta)}{\sin(\theta)}$</li>
+                    </ul>
+                </div>
+
+                <div class="graph-area">
+                    <h3>Visualização Gráfica:</h3>
+                    <div id="functionSelector">
+                        <label><input type="checkbox" value="csc" checked> Cossecante (csc)</label>
+                        <label><input type="checkbox" value="sec" checked> Secante (sec)</label>
+                        <label><input type="checkbox" value="cot" checked> Cotangente (cot)</label>
+                    </div>
+                    <canvas id="trigGraph"></canvas>
+                </div>
+            </section>
+
+            <section id="cossecante" class="content-section">
+                <h2>Cossecante (csc)</h2>
+                <p>A cossecante é a função recíproca do seno. Explore suas propriedades e identidades.</p>
+
+                <div class="properties">
+                    <h3>Propriedades:</h3>
+                    <ul>
+                        <li>Domínio: $\mathbb{R} - \{k\pi \mid k \in \mathbb{Z}\}$</li>
+                        <li>Imagem: $(-\infty, -1] \cup [1, \infty)$</li>
+                        <li>Período: $2\pi$</li>
+                        <li>Assíntotas verticais em $x = k\pi, k \in \mathbb{Z}$</li>
+                    </ul>
+                </div>
+
+                <div class="identities">
+                    <h3>Identidades Relacionadas:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Identidade</th>
+                                <th>Expressão</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pitagórica</td>
+                                <td>$1 + \cot^2\theta = \csc^2\theta$</td>
+                            </tr>
+                            <tr>
+                                <td>Ângulo negativo</td>
+                                <td>$\csc(-\theta) = -\csc\theta$</td>
+                            </tr>
+                            <tr>
+                                <td>Complementar</td>
+                                <td>$\csc\left(\frac{\pi}{2} - \theta\right) = \sec\theta$</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="secante" class="content-section">
+                <h2>Secante (sec)</h2>
+                <p>A secante, recíproca do cosseno, possui características únicas. Descubra mais!</p>
+
+                <div class="properties">
+                    <h3>Propriedades:</h3>
+                    <ul>
+                        <li>Domínio: $\mathbb{R} - \{\frac{\pi}{2} + k\pi \mid k \in \mathbb{Z}\}$</li>
+                        <li>Imagem: $(-\infty, -1] \cup [1, \infty)$</li>
+                        <li>Período: $2\pi$</li>
+                        <li>Assíntotas verticais em $x = \frac{\pi}{2} + k\pi, k \in \mathbb{Z}$</li>
+                    </ul>
+                </div>
+
+                <div class="identities">
+                    <h3>Identidades Relacionadas:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Identidade</th>
+                                <th>Expressão</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pitagórica</td>
+                                <td>$1 + \tan^2\theta = \sec^2\theta$</td>
+                            </tr>
+                            <tr>
+                                <td>Ângulo negativo</td>
+                                <td>$\sec(-\theta) = \sec\theta$</td>
+                            </tr>
+                            <tr>
+                                <td>Complementar</td>
+                                <td>$\sec\left(\frac{\pi}{2} - \theta\right) = \csc\theta$</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cotangente" class="content-section">
+                <h2>Cotangente (cot)</h2>
+                <p>Explore a cotangente, a recíproca da tangente, e suas importantes relações.</p>
+
+                <div class="properties">
+                    <h3>Propriedades:</h3>
+                    <ul>
+                        <li>Domínio: $\mathbb{R} - \{k\pi \mid k \in \mathbb{Z}\}$</li>
+                        <li>Imagem: $(-\infty, \infty)$</li>
+                        <li>Período: $\pi$</li>
+                        <li>Assíntotas verticais em $x = k\pi, k \in \mathbb{Z}$</li>
+                    </ul>
+                </div>
+
+                <div class="identities">
+                    <h3>Identidades Relacionadas:</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Identidade</th>
+                                <th>Expressão</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Definição</td>
+                                <td>$\cot\theta = \frac{\cos\theta}{\sin\theta}$</td>
+                            </tr>
+                            <tr>
+                                <td>Ângulo negativo</td>
+                                <td>$\cot(-\theta) = -\cot\theta$</td>
+                            </tr>
+                            <tr>
+                                <td>Complementar</td>
+                                <td>$\cot\left(\frac{\pi}{2} - \theta\right) = \tan\theta$</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="calculadora" class="content-section">
+                <h2>Calculadora Trigonométrica</h2>
+                <p>Use esta ferramenta interativa para calcular os valores das funções cossecante, secante e cotangente para qualquer ângulo.</p>
+
+                <div class="calculator">
+                    <label for="angle">Ângulo (em graus):</label>
+                    <input type="number" id="angle" step="any" placeholder="Digite o ângulo">
+
+                    <label for="function">Função:</label>
+                    <select id="function">
+                        <option value="csc">Cossecante (csc)</option>
+                        <option value="sec">Secante (sec)</option>
+                        <option value="cot">Cotangente (cot)</option>
+                    </select>
+
+                    <button onclick="calculate()">Calcular</button>
+
+                    <div id="result" class="calculator-result"></div>
+                </div>
+
+                <div class="notable-values">
+                    <h3>Tabela de Valores Notáveis</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ângulo (graus)</th>
+                                <th>Cossecante</th>
+                                <th>Secante</th>
+                                <th>Cotangente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0°</td>
+                                <td>±∞</td>
+                                <td>1</td>
+                                <td>±∞</td>
+                            </tr>
+                            <tr>
+                                <td>30°</td>
+                                <td>2</td>
+                                <td>$2\sqrt{3}/3$</td>
+                                <td>$\sqrt{3}$</td>
+                            </tr>
+                            <tr>
+                                <td>45°</td>
+                                <td>$\sqrt{2}$</td>
+                                <td>$\sqrt{2}$</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>60°</td>
+                                <td>$2\sqrt{3}/3$</td>
+                                <td>2</td>
+                                <td>$\sqrt{3}/3$</td>
+                            </tr>
+                            <tr>
+                                <td>90°</td>
+                                <td>1</td>
+                                <td>±∞</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="exercicios" class="content-section">
+                <h2>Exercícios Práticos</h2>
+                <p>Teste seus conhecimentos com estes exercícios.</p>
+                <ol class="exercises-list">
+                    <li>Calcule: csc(30°) = ?</li>
+                    <li>Calcule: sec(45°) = ?</li>
+                    <li>Calcule: cot(60°) = ?</li>
+                    <li>Simplifique a expressão: $\frac{\sec^2\theta - 1}{\tan^2\theta}$</li>
+                    <li>Prove a identidade: $\csc\theta - \sin\theta = \cos\theta \cot\theta$</li>
+                </ol>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2025 Site de Trigonometria Avançada</p>
+            <p>Desenvolvido com paixão pela matemática</p>
+        </footer>
+    </div>
+</body>
+</html>
